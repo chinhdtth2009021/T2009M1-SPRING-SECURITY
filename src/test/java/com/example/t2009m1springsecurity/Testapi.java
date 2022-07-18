@@ -1,5 +1,7 @@
 package com.example.t2009m1springsecurity;
 
+import com.example.t2009m1springsecurity.entity.AccountLoginDto;
+import com.example.t2009m1springsecurity.entity.Credential;
 import com.example.t2009m1springsecurity.entity.dto.AccountRegisterDto;
 import com.example.t2009m1springsecurity.service.AccountService;
 import org.junit.jupiter.api.Test;
@@ -24,5 +26,13 @@ public class Testapi {
         accountRegisterDto.setRole(1);
         AccountRegisterDto afterCreate = accountService.register(accountRegisterDto);
         System.out.println(afterCreate);
+    }
+    @Test
+    public void login(){
+        AccountLoginDto accountLoginDto = new AccountLoginDto();
+        accountLoginDto.setUsername("quynhanh");
+        accountLoginDto.setPassword("123456");
+        Credential credential = accountService.login(accountLoginDto);
+        System.out.println(credential.toString());
     }
 }
